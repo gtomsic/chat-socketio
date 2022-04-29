@@ -18,4 +18,8 @@ io.on('connection', (socket) => {
   socket.on('messageToServer', (data) => {
     console.log(data);
   });
+  socket.on('newMessageToServer', (msg) => {
+    // now send it back to client
+    io.emit('messageToClient', msg);
+  });
 });
